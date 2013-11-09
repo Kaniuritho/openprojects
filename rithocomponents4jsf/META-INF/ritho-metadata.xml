@@ -1,0 +1,53 @@
+<?xml version='1.0' ?>
+
+<model>
+  <modelId>ritho-jsf</modelId>
+  
+  <component>
+    <modelId>ritho-jsf</modelId>
+    <className>com.ritho.jsf.html.component.UITickerComponent</className>
+    <sourceClassName>com.ritho.jsf.html.component.UITickerComponent</sourceClassName>
+    <type>javax.faces.Component</type>
+    <family>javax.faces.Component</family>
+    <desc>abstract base component</desc>
+    <longDesc>
+	<![CDATA[
+		Ticker component class
+	]]>
+    </longDesc>
+    
+    <property>
+      <name>rendered</name>
+      <className>boolean</className>
+      <desc>A boolean value that indicates whether this component should be rendered</desc>
+      <longDesc>A boolean value that indicates whether this component should be rendered.
+	Default value: true.</longDesc>
+    </property>     
+    
+  </component>
+  
+  
+  
+    <tag>
+    <modelId>ritho-jsf</modelId>
+    <className>com.ritho.jsf.html.UITickerTag</className>
+    <sourceClassName>com.ritho.jsf.html.UITickerTag</sourceClassName>
+    <sourceClassParentClassName>org.apache.myfaces.shared_impl.taglib.UIComponentBodyTagBase</sourceClassParentClassName>
+    <name>r:ticker</name>
+    <bodyContent>JSP</bodyContent>
+    <desc>Its a ticker tag</desc>
+    <longDesc>
+	<![CDATA[
+		blah blah
+	]]>
+    </longDesc>
+    <attribute>
+      <name>rendered</name>
+      <className>java.lang.String</className>
+      <desc>A boolean value that indicates whether this component should be rendered.</desc>
+      <longDesc>A boolean value that indicates whether this component should be rendered.</longDesc>
+    </attribute>  
+    </tag>
+    
+  
+  </model>

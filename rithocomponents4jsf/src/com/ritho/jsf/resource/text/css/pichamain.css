@@ -1,0 +1,245 @@
+.resultsPnl {
+	/*height: 100%;*/
+	height: auto;
+	text-align: center;
+	border: 1px solid #ff0000;
+	position:static;
+}
+
+.resultImg { /**height: 50px;*/
+	position:static;
+}
+
+.randomImg {
+	height: 30px;
+	width: *;
+}
+
+.randomImgPnl {
+	align: top;
+	position: static;
+	float: left; #
+	text-align: center;
+	margin: 2px;
+	border: 1px solid #00ff00;
+	right: 0;
+	height: 180px;
+	width: *;
+}
+
+.searchImg {
+	height: 80px;
+}
+.searchPopupImg {
+	max-height: 200px;
+	width: *;
+}
+.img {
+	align: center;
+	text-align: center;
+	margin: 2px;
+	border: 1px solid #0000ff;
+	background-color: #666666; /* background colour here */  
+  /**
+  	height: 60px;
+  	width: 60px;
+  */
+	float: left;
+}
+
+div.img {
+	align: center;
+	text-align: center;
+	margin: 2px;
+	border: 1px solid #0000ff;	
+	/**  
+  height: auto;
+  width: auto;
+  */
+	float: left;
+}
+
+div.img img { #
+	display: inline;
+	margin: 3px;
+	border: 1px solid #ffffff;
+	/*background-image: url('images/loader.gif') no-repeat center center;*/
+}
+
+div.img a:hover img {
+	border: 1px solid #00ff00;
+}
+
+div.name {
+	align: center;
+	text-align: center;
+	font-weight: normal;
+	font-size: xx-small;
+	width: 120px;
+	margin: 2px;
+	overflow: hidden;
+}
+
+div.scores {
+	align: left;
+	text-align: left;
+	font-weight: normal;
+	font-size: 7;
+	color: green;
+	width: 120px;
+	margin: 2px;
+	overflow: hidden;
+}
+
+div.web {
+	align: left;
+	text-align: left;
+	font-weight: normal;
+	font-size: 7;
+	color: green;
+	width: 120px;
+	margin: 2px;
+	overflow: hidden;
+}
+
+div.match {
+	align: left;
+	text-align: left;
+	font-weight: normal; #
+	font-size: xx-small;
+	font-size: xx-small;
+	color: red;
+	width: 120px;
+	margin: 2px;
+}
+
+div.ptitle {
+	align: left;
+	text-align: left;
+	color: olive;
+	margin-left: 12px;
+}
+
+/**Image resize popup*/
+.popupImg {
+	display: none;
+	position: relative;
+	top: 0em;
+	left: 0em;
+	width: auto;
+	border: 1px solid #ff0000; /* border colour */
+	background-color: #ffff99; /* background colour here */
+	color: #000000; /* text colour */
+	text-align: center;
+	font-size: .8em;
+	font-style: italic;
+	z-index: 34;
+}
+
+/* a:link {color: #FF0000}     /* unvisited link */
+	/* a:visited {color: #FF000F}  /* visited link */
+	/* a:hover {color: #FF0000}   /* mouse over link */
+	/* a:active {color: #FF0000}   /* selected link */
+	/**Testing the css drop down*/
+.dropmenudiv {
+	position: absolute;
+	top: 0em;
+	border: 1px solid #BBB; /*THEME CHANGE HERE*/
+	border-bottom-width: 0;
+	font: normal 10px Verdana;
+	line-height: 12px;
+	background-color: white;
+	/**width: 200px;
+visibility: hidden;*/
+	display: none;
+	z-index: 34;
+	filter: progid : DXImageTransform . Microsoft .
+		Shadow(color = #CACACA, direction = 135, strength = 4);
+	/*Add Shadow in IE. Remove if desired*/
+}
+
+.dropmenudiv a {
+	width: auto;
+	display: block;
+	text-indent: 3px;
+	border-bottom: 1px solid #BBB; /*THEME CHANGE HERE*/
+	padding: 2px 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+* html .dropmenudiv a { /*IE only hack*/
+	width: 100%;
+}
+
+.dropmenudiv a:hover { /*THEME CHANGE HERE*/
+	background-color: #F0F0F0;
+}
+
+.buttondiv {
+	position: absolute;
+	border: 1px solid #BBB; /*THEME CHANGE HERE*/
+	border-bottom-width: 0;
+	font: normal 8px Verdana;
+	line-height: 12px;
+	color: red;
+	background-color: yellow;
+	/**
+width: 200px;
+visibility: hidden;
+display: none;
+z-index: 34;
+*/
+}
+
+.data {
+	width: auto;
+	display: inline;
+	position: absolute;
+	float: right;
+}
+
+.controls {
+	display: inline;
+	position: absolute;
+	top: 0em;
+	left: 0em;
+	width: auto;
+	border: 1px solid #BBB; /*THEME CHANGE HERE*/
+	border-bottom-width: 0;
+	background-color: grey;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+}
+
+.controls:hover {
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+}
+
+.controlBtn {
+	padding: 5px 5px;
+	align: center;
+	top: 50%;
+	position: static;
+	display: none;
+	border: 1px solid #FFF; /*THEME CHANGE HERE*/
+	border-bottom-width: 0;
+	font: normal 10px Verdana;
+	line-height: 12px;
+	color: black;
+	background-color: yellow;
+	background-image: url(../images/searcheye_icon.gif);background-repeat:no-repeat; 
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
+}
+
+.controlBtn a {
+	font: normal 10px Verdana;
+}
+
+.controlBtn:hover {
+	opacity: 1.0;
+	filter: alpha(opacity = 100);
+}

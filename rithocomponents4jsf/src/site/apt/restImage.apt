@@ -1,0 +1,22 @@
+
+  Here is a complete jsp example of restImage component in Myfaces JSF
+
+----
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:r="http://ritho.com/jsf">
+<jsp:directive.page contentType="text/html;charset=utf-8" />
+<html>
+<body>
+<f:view>
+	<r:restImageActivator  restUrl="/[application context]/[proxy servlet mapping]?http://[remoteservice:port]/[remotecontext]/"  />
+	
+	<r:restImage rendered="true" row="image_#{imgId}" id="[some uniqueId]"  styleClass="randomImg" />
+</f:view>
+</body>
+</html>
+</jsp:root>
+----- 
