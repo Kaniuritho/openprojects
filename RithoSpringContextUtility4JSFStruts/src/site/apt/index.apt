@@ -1,0 +1,20 @@
+ 
+  Ritho Spring Utility for JSF/Struts2 are utilities for handling SpringFramework contexts in JSF or Struts. 
+  It abstracts the Spring classes related to the UI frameworks in loose coupling. 
+  
+  Caveat: Appropriate classes are loaded at runtime.
+
+ Usage:
+  If you are trying to load a Spring Bean from within a JSF bean, here's an example
+
+----
+  exampleBean = (ExampleBean) ApplicationContextLoaderFactory.getBean(ApplicationContextLoaderFactory.APPLICATION_FRAMEWORK.JSF,"exampleBean");
+----
+
+  To load a bean from within Struts:
+
+----
+   exampleBean = (ExampleBean) ApplicationContextLoaderFactory.getBean(ApplicationContextLoaderFactory.APPLICATION_FRAMEWORK.STRUTS2,"exampleBean");
+----
+
+ Other Java based UI frameworks can be implemented in the future.
