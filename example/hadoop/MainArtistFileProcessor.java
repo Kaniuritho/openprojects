@@ -1,4 +1,4 @@
-package com.knewton;
+package example.hadoop;
 
 import java.io.IOException;
 import java.util.Set;
