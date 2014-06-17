@@ -124,5 +124,12 @@ mkdir /app
 chown -f -R hduser:hadoop /app
 chmod -f 0740 /app
 
+#alternate prepping JBOF 
+#appdatadirs="/mnt/disk1/app/ /mnt/disk2/app/ /mnt/disk3/app/"
+#mkdir $appdatadirs
+#chown -f -R hduser:hadoop $appdatadirs
+#chmod -f 0740 $appdatadirs
+
+
 chown -f -R hduser:hadoop /Users/hduser
 chmod -f -R 0740 /Users/hduser
