@@ -1,0 +1,29 @@
+
+states=`cat stateabbreviations.txt | sed  's/^.*$/"&"/g'  | tr '\n' ',' |sed 's/.\w*$//'` 
+
+
+curl -XPUT "http://localhost:9200/statesabbreviation_index/" -d '
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "statesabbr_synonym_filter": {
+          "type": "synonym",
+	  "synonyms": [
+           '"$states"' 
+          ]
+        }
+      },
+      "analyzer": {
+        "statesabbr_synonyms": {
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "statesabbr_synonym_filter"
+          ]
+        }
+      }
+    }
+  }
+}'
+

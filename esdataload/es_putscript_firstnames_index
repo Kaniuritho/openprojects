@@ -1,0 +1,32 @@
+
+names=`cat firstnames_hypocoristics.txt | sed  's/^.*$/"&"/g'  | tr '\n' ',' |sed 's/.\w*$//' | awk '{ print tolower($0) }'` 
+
+curl -XDELETE "http://localhost:9200/firstnames_index/"
+sleep 3
+
+curl -XPUT "http://localhost:9200/firstnames_index/" -d '
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "firstnames_synonym_filter": {
+          "type": "synonym",
+	  "synonyms": [
+           '"$names"' 
+          ]
+        }
+      },
+      "analyzer": {
+        "firstnames_synonyms": {
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "firstnames_synonym_filter"
+          ]
+        }
+      }
+    }
+  }
+}'
+
+
