@@ -50,8 +50,7 @@ function printRow( $rowresult ) {
 	}
 }
 
-$hbase_server_ip = 'localhost';#'73.44.211.145'; #'127.0.0.1'; #'192.168.1.107';
-#$socket = new TSocket( '73.44.211.145', 9090 );
+$hbase_server_ip = 'localhost';
 $socket = new TSocket( $hbase_server_ip, 9090 );
 $socket->setSendTimeout( 20000 ); 
 $socket->setRecvTimeout( 40000 ); 
@@ -112,15 +111,7 @@ try {
 
 
 echo( "----NOTE: THRIFT HAS NOT IMPLEMENTED FILTERS YET....COMING SOON!  Filter by column value ..\n" );
-#$startrow = '1';
-#$columns = array ('column' => 'stpr', );
-#$scanner = $client->scannerOpenWithFilterString($tablename,"SingleColumnValueFilter (‘stpr’, ‘status’, =, ‘approved')");
-#try {
-#   printRow2( $client->scannerGet( $scanner ) );
-#} catch ( NotFound $nf ) {
-#  $client->scannerClose( $scanner );
-#  echo( "Scanner finished\n" );
-#}
+
 
 
 echo( "----Using restful scan filter ---  Filter by column value ..\n" );
