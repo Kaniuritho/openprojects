@@ -1,6 +1,5 @@
 <?php
-$GLOBALS['THRIFT_SRC'] = '/home/kaniu/thrift/lib/php/lib/Thrift';
-$GLOBALS['THRIFT_ROOT'] = '/home/kaniu/thrift/lib/php/lib';
+$GLOBALS['THRIFT_ROOT'] = '/home/<homedir>/thrift/lib/php/lib';
 
 require_once $GLOBALS['THRIFT_ROOT'].'/Thrift/autoload.php' ;
 require_once $GLOBALS['THRIFT_ROOT'].'/Thrift/Thrift.php' ;
