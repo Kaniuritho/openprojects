@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
+
+  <groupId>com.ritho.hadoop</groupId>
+  <artifactId>ritho_hive</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+  <name>ritho_hive</name>
+  <description>
+    Hive UDFs.
+  </description>
+
+  
+  <dependencies>
+			
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+    <dependency>
+	<groupId>org.apache.hadoop</groupId>
+	<artifactId>hadoop-client</artifactId>
+	<version>2.4.0</version>
+	</dependency>
+    <dependency>
+	<groupId>org.apache.hive</groupId>
+	<artifactId>hive-cli</artifactId>
+	<version>0.12.0</version>
+	</dependency>
+  	<dependency>
+	<groupId>org.apache.hive</groupId>
+	<artifactId>hive-exec</artifactId>
+	<version>0.12.0</version>
+  	</dependency>
+  	
+  	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-core</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+
+  	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-codecs</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+ 
+   	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-expressions</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+  	
+  	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-facet</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+ 
+   	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-grouping</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+ 
+   	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-queries</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+  	 	
+   	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-queryparser</artifactId>
+	<version>5.1.0</version>
+  	</dependency> 	
+
+  	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-suggest</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+
+  	<dependency>
+	<groupId>org.apache.lucene</groupId>
+	<artifactId>lucene-analyzers-common</artifactId>
+	<version>5.1.0</version>
+  	</dependency>
+  	  	  	
+
+  </dependencies>
+
+
+  <developers>
+    <developer>
+      <name>Kaniu Ndungu</name>
+      <email>kaniu@ritho.com</email>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
+
+
+  <repositories>
+
+    <repository>
+      <id>my-local-repo</id>
+      <url>file://${user.home}/.m2/repository</url>
+    </repository>
+  </repositories>
+
+
+  <build>
+  	<directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+    <sourceDirectory>src</sourceDirectory>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.rat</groupId>
+          <artifactId>apache-rat-plugin</artifactId>
+          <version>0.9</version>
+          <configuration>
+            <excludes>
+              <exclude>*.patch</exclude>
+              <exclude>**/target/**</exclude>
+              <exclude>*.json</exclude>
+              <exclude>.vagrant/**</exclude>
+              <exclude>.git/**</exclude>
+              <exclude>*.md</exclude>
+              <exclude>docs/**</exclude>
+              <exclude>config/**</exclude>
+              <exclude>bin/**</exclude>
+              <exclude>.gitignore</exclude>
+              <exclude>**/.cache/**</exclude>
+              <exclude>deploy/**</exclude>
+              <exclude>**/.project</exclude>
+            </excludes>
+            <includes>
+              <!--<include>**/*.class</include>-->
+            </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+
+      
+    
+    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.9.1</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.rat</groupId>
+        <artifactId>apache-rat-plugin</artifactId>
+        <version>0.9</version>
+        <executions>
+          <execution>
+            <phase>test</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- plugin to build the tar.gz file filled with examples -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/jar-src.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin> 
+    </plugins>
+  </build>
+  
+</project>
