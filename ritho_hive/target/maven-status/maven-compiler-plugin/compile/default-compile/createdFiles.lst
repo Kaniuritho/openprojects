@@ -1,7 +1,0 @@
-com/gopdatatrust/hadoop/hive/udf/ToDateString.class
-com/gopdatatrust/hadoop/hive/udf/CompareCityNames.class
-com/gopdatatrust/hadoop/lucene/analyze/SynonymMapLoader.class
-com/gopdatatrust/hadoop/hive/udf/CompareStreetNames.class
-com/gopdatatrust/hadoop/hive/udf/CompareYearInDateString.class
-com/gopdatatrust/hadoop/lucene/analyze/SynonymAnalyzer.class
-com/gopdatatrust/hadoop/lucene/analyze/AnalyzerUtil.class
