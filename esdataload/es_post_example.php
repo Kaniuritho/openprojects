@@ -1,6 +1,6 @@
 <?
 function restgetcall() {
- $url="http://192.168.179.101:9200/firstnames_index/_analyze?analyzer=firstnames_synonyms&text='Frederick'";
+ $url="http://localhost:9200/firstnames_index/_analyze?analyzer=firstnames_synonyms&text='Frederick'";
  $headers = array(
  'Accept: application/json',
  'Content-Type: application/json',

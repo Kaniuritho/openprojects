@@ -1,5 +1,4 @@
 <?php
-$GLOBALS['THRIFT_SRC'] = '/home/kaniu/thrift/lib/php/lib/Thrift';
 $GLOBALS['THRIFT_ROOT'] = '/usr/lib/php/Thrift';
 
 require_once $GLOBALS['THRIFT_ROOT'].'/autoload.php' ;
@@ -31,7 +30,7 @@ use Thrift\Transport\TFramedTransport;
 use Hbase\Mutation;
 use Hbase\HbaseClient;
 
-$hbase_server='localhost';#'64.203.107.140'
+$hbase_server='localhost';
 $socket = new TSocket( $hbase_server , 9090 );
 $socket->setSendTimeout( 20000 ); 
 $socket->setRecvTimeout( 40000 ); 
