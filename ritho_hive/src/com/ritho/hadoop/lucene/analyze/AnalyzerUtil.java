@@ -7,7 +7,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
-import com.gopdatatrust.hadoop.lucene.analyze.SynonymAnalyzer;
+import com.ritho.hadoop.lucene.analyze.SynonymAnalyzer;
 
 public class AnalyzerUtil {
 	
