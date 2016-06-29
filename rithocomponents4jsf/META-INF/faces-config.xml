@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
+<faces-config>
+ <!-- TICKER component -->
+ <component>
+  <component-type>ticker</component-type>
+  <component-class>com.ritho.jsf.html.component.UITickerComponent</component-class>
+ </component>
+ <component>
+  <component-type>autoImage</component-type>
+  <component-class>com.ritho.jsf.html.component.AutoImageComponent</component-class>
+ </component>
+ <component>
+  <component-type>autoImageActivator</component-type>
+  <component-class>com.ritho.jsf.html.component.JSAutoImageActivatorComponent</component-class>
+ </component>
+ <component>
+  <component-type>restImage</component-type>
+  <component-class>com.ritho.jsf.html.component.RESTfulImageComponent</component-class>
+ </component>
+ <component>
+  <component-type>restImageActivator</component-type>
+  <component-class>com.ritho.jsf.html.component.JSRESTfulImageActivatorComponent</component-class>
+ </component>
+ <!-- Ajax phase listener
+	<lifecycle>	
+		<phase-listener>com.ritho.jsf.listener.AjaxPhaseListener</phase-listener>
+	</lifecycle>
+ -->
+ <lifecycle>
+  <phase-listener>com.ritho.jsf.resource.RithoResourceLoaderPhaseListener</phase-listener>
+ </lifecycle>
+</faces-config>
