@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import com.ritho.jsf.resource.RithoResourceLoaderPhaseListener;
 
-
+/**
+*@author KN
+**/
 public class TestEnum {
 
 	@Test
