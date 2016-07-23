@@ -26,8 +26,7 @@ public class RuleRunner
   
         for(String ruleFile : rules)
         {
-            Resource resource = kieResources.newClassPathResource(ruleFile);
-  
+            Resource resource = kieResources.newClassPathResource(ruleFile);  
             // path has to start with src/main/resources
             // append it with the package from the rule
             kieFileSystem.write("src/main/resources/"+ruleFile, resource);
@@ -45,7 +44,6 @@ public class RuleRunner
         KieContainer kContainer = kieServices.newKieContainer(kieRepository.getDefaultReleaseId());
  
         KieSession kSession = kContainer.newKieSession();
-       
          
         for (Object fact : facts)
         {
