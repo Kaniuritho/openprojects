@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import org.apache.avro.Schema;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericDatumReader;
 import org.apache.avro.generic.GenericDatumWriter;
 import org.apache.avro.generic.GenericRecord;
@@ -14,13 +13,11 @@ import org.apache.avro.io.Decoder;
 import org.apache.avro.io.DecoderFactory;
 import org.apache.avro.io.Encoder;
 import org.apache.avro.io.EncoderFactory;
-import org.apache.avro.io.JsonEncoder;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;
 import org.codehaus.jackson.map.ObjectMapper;
 
 public class AvroUtils <T> {
-	 private T specificDatum;
 
 	 /**
      * Convert JSON to avro binary array.
@@ -93,12 +90,29 @@ public class AvroUtils <T> {
      * @return Returns <T> type which specifies the java object type being operated on. It specified at this class' instantiation.
      * @throws IOException
      */
-    public T avroToJava(byte[] avro, Schema schema) throws IOException {
+    public static <GenericDataRecord>  GenericDataRecord avroToJava(byte[] avro, Schema schema) throws IOException {
 
-        GenericDatumReader<T> reader = new SpecificDatumReader<T>(schema);  
+        GenericDatumReader<GenericDataRecord> reader = new SpecificDatumReader<GenericDataRecord>(schema);  
         Decoder decoder = DecoderFactory.get().binaryDecoder(avro, null);
-        specificDatum = reader.read(null, decoder);
+        GenericDataRecord genericDatum = reader.read(null, decoder);
   
+        return genericDatum;
+    }
+    
+    /**
+     * Convert avro binary to Java object.
+     * 
+     * @param avro - avro binary
+     * @param schema - avro schema
+     * @return Returns <T> type which specifies the java object type being operated on. It specified at this class' instantiation.
+     * @throws IOException
+     */
+	public static <T> T avroToJava(byte[] avro, Schema schema, Class<T> clazz) throws IOException {
+
+        String json = avroToJson(avro,schema);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        T specificDatum =  mapper.readValue(json, clazz);
         return specificDatum;
     }
     
@@ -111,11 +125,37 @@ public class AvroUtils <T> {
      * 
      * @throws IOException
      */
-    public byte[] serializeJava(T object, Schema schema) throws IOException {
+    public static <T>  byte[] serializeJava(T object, Schema schema) throws IOException {
 
     	ObjectMapper mapper = new ObjectMapper();
     	String json = mapper.writeValueAsString(object);
     	
     	return serializeJson(json , schema);
     }
+    
+   
+    
+    /**
+     *  Convert Java object to avro binary array.
+     * 
+     * @param object - Java data object created by Avro from schema
+     * @param schema - avro schema
+     * @return Returns byte[] - serialized avro data.
+     * 
+     * @throws IOException
+     */
+    public static byte[] serializeJava(GenericRecord object, Schema schema) throws IOException {
+
+        GenericDatumWriter<GenericRecord> writer = new SpecificDatumWriter<GenericRecord>(schema);
+        ByteArrayOutputStream output = new ByteArrayOutputStream(); 
+        
+        Encoder encoder = EncoderFactory.get().binaryEncoder(output, null);
+
+        writer.write(object, encoder);
+        encoder.flush();
+        
+        return output.toByteArray();
+    }
+	
+	
 }
