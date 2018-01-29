@@ -49,11 +49,11 @@ public class RESTVolumeTest_with_DataProtocols {
 	}
 
 	public static URLConnection openConnection() throws IOException {
-		URL url = new URL("http://ec2-52-38-19-146.us-west-2.compute.amazonaws.com:8090/gateway/queues");
+		URL url = new URL("http://ec2-00-00-00-00.us-west-2.compute.amazonaws.com:8090/gateway/queues");
 		URLConnection connection = url.openConnection();
 		connection.setDoOutput(true);
 		connection.setRequestProperty("Authorization",
-				"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiJ9.bZwX6cFExrcHm8P9onE_wTAkJlEeb8Qz4J2e7vqQSADplc5o9lWurlKi-xOdPU_wm0QlWaGIeLwzTZUQ97EC1g");
+				"Bearer blahblahblah");
 		connection.setRequestProperty("Content-Type", "text/plain");
 		connection.setConnectTimeout(5000);
 		connection.setReadTimeout(5000);
